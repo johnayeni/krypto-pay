@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "SQ market";
+  src: url("../fonts/sqmarket-regular.ttf");
+}
+@font-face {
+  font-family: "SQ market";
+  src: url("../fonts/sqmarket-light.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "SQ market";
+  src: url("../fonts/sqmarket-medium.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "SQ market";
+  src: url("../fonts/sqmarket-bold.ttf");
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  font-family: "SQ market", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input,
+select,
+textarea {
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.1) 0px 1px 2px !important;
+}
