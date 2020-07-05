@@ -1,7 +1,5 @@
 export async function getCategories() {
-  return await (
-    await fetch(`${process.env.REACT_APP_API_URL}/categories`)
-  ).json();
+  return await fetch(`${process.env.REACT_APP_API_URL}/categories`);
 }
 
 interface Payload {
@@ -15,13 +13,11 @@ interface Payload {
 }
 
 export async function createTransaction(payload: Payload) {
-  return await (
-    await fetch(`${process.env.REACT_APP_API_URL}/transaction`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-  ).json();
+  return await fetch(`${process.env.REACT_APP_API_URL}/transaction`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }

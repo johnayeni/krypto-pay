@@ -23,8 +23,8 @@ const Features: React.FC<Props> = (props) => {
           Pay for TV and Electricity
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
-          Pay for Cable and Electricity subscriptions across supported countries
-          and services.
+          Pay for cable subscriptions and electricity bills across supported
+          countries and services.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
@@ -33,8 +33,7 @@ const Features: React.FC<Props> = (props) => {
           Refill your phone
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
-          Top up any phone anywhere across 4 african countries and 5 supported
-          operators.
+          Top up any phone anywhere for supported countries and operators.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>

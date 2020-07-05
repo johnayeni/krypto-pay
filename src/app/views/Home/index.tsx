@@ -2,8 +2,8 @@ import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import { Box } from "@chakra-ui/core";
 import NavBar from "app/components/NavBar";
-import Hero from "app/components/Hero";
-import Features from "app/components/Features";
+import Hero from "app/views/Home/components/Hero";
+import Features from "app/views/Home/components/Features";
 
 interface Props extends RouteComponentProps {}
 

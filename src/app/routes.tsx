@@ -1,5 +1,5 @@
 import React from "react";
-import { Router } from "@reach/router";
+import { Router, Redirect } from "@reach/router";
 import Home from "./views/Home";
 import Buy from "./views/Buy";
 
@@ -8,6 +8,7 @@ const Routes: React.FC = () => {
     <Router>
       <Home path="/" />
       <Buy path="/buy" />
+      <Redirect from="*" to="/" />
     </Router>
   );
 };

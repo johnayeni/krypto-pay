@@ -4,7 +4,7 @@ import { Skeleton, Stack } from "@chakra-ui/core";
 interface Props {}
 
 const SkeletonProducts: React.FC<Props> = (props) => {
-  const placeholderItems = Array.from(new Array(6), (_, x) => x);
+  const placeholderItems = Array.from(new Array(12), (_, x) => x);
   return (
     <Stack
       direction="row"
@@ -17,7 +17,7 @@ const SkeletonProducts: React.FC<Props> = (props) => {
         <Skeleton
           key={index}
           height="200px"
-          width="300px"
+          width="200px"
           colorStart="#F0F2F5"
           colorEnd="#f0f2f54f"
           marginY={10}

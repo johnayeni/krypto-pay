@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/core";
 import { FaShoppingCart } from "react-icons/fa";
 import { createTransaction } from "app/api";
+import { formatMoneyNoCurrency } from "../../../utils/helpers";
 
 interface Props {
   isOpen: boolean;
@@ -41,7 +42,9 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
   const handleServiceCustomerIdChange = (event: any) =>
     setServiceCustomerId(event.target.value);
 
-  const [amount, setAmount] = React.useState(500);
+  const [amount, setAmount] = React.useState(
+    product.amount ? product.amount : 500
+  );
   const handleAmountChange = (event: any) => setAmount(event.target.value);
 
   const [email, setEmail] = React.useState("");
@@ -62,7 +65,15 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
         email,
       });
 
-      window.location.replace(response.transaction.hosted_url);
+      if (!response.ok) {
+        throw response;
+      }
+      const data = await response.json();
+      if (!data.transaction) {
+        throw new Error("Error occurred");
+      }
+      // window.location.replace(data.transaction.hosted_url);
+      console.log(data);
     } catch (error) {
       toast({
         title: "Error occurred",
@@ -75,6 +86,10 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
       setLoading(false);
     }
   };
+
+  React.useEffect(() => {
+    setAmount(product.amount ? product.amount : 500);
+  }, [product]);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
@@ -96,31 +111,38 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
             />
             <Stack spacing={8}>
               <Text fontSize="md" color="grey" fontWeight="600">
-                Pay with Bitcoin or Ethereum. Instant email delivery. No account
-                required.
+                Pay with Bitcoin or Ethereum. No account required.
               </Text>
               <Box>
                 <label htmlFor="amount">Amount (Naira)</label>
-                <NumberInput
-                  defaultValue={500}
-                  min={500}
-                  max={100000}
-                  size="lg"
-                  marginY={5}
-                >
-                  <NumberInputField
-                    type="number"
-                    id="amount"
-                    backgroundColor="lightGrey.800"
-                    value={amount}
-                    onChange={handleAmountChange}
-                  />
-                  <NumberInputStepper>
-                    <NumberIncrementStepper color="black" />
-                    <NumberDecrementStepper color="black" />
-                  </NumberInputStepper>
-                </NumberInput>
-                {amount < 500 && (
+                {product.amount ? (
+                  <Text fontSize="lg" color="black" fontWeight="800">
+                    {formatMoneyNoCurrency(product.amount)}
+                  </Text>
+                ) : (
+                  <NumberInput
+                    defaultValue={500}
+                    min={500}
+                    max={100000}
+                    size="lg"
+                    marginY={5}
+                  >
+                    <NumberInputField
+                      type="number"
+                      id="amount"
+                      backgroundColor="lightGrey.800"
+                      value={amount}
+                      isDisabled={!!product.amount}
+                      isReadOnly={product.amount}
+                      onChange={handleAmountChange}
+                    />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper color="black" />
+                      <NumberDecrementStepper color="black" />
+                    </NumberInputStepper>
+                  </NumberInput>
+                )}
+                {amount < 500 && !product.amount && (
                   <Alert status="error" marginY={5}>
                     <AlertIcon />
                     <AlertTitle mr={2}>

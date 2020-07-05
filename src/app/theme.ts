@@ -5,9 +5,21 @@ export default {
   colors: {
     ...theme.colors,
     brand: {
-      900: "#1a365d",
-      800: "#153e75",
-      700: "#5B99F0",
+      900: "#01603A",
+      800: "#009057",
+      700: "#00EB8D",
+    },
+    green: {
+      ...theme.colors.green,
+      900: "#01603A",
+      800: "#01603A",
+      700: "#01603A",
+      600: "#009057",
+      500: "#009057",
+      400: "#009057",
+      300: "#00EB8D",
+      200: "#00EB8D",
+      100: "#00EB8D",
     },
     lightGrey: {
       800: "#F0F2F5",
@@ -16,9 +28,9 @@ export default {
   },
   breakpoints: ["30em", "48em", "62em", "80em"],
   fonts: {
-    heading: '"SQ market", sans-serif',
-    body: "SQ market, sans-serif",
-    mono: "SQ market, sans-serif",
+    heading: "Quicksand, sans-serif",
+    body: "Quicksand, sans-serif",
+    mono: "Quicksand, sans-serif",
   },
   fontSizes: {
     xs: "0.75rem",

@@ -1,28 +1,8 @@
-@font-face {
-  font-family: "SQ market";
-  src: url("../fonts/sqmarket-regular.ttf");
-}
-@font-face {
-  font-family: "SQ market";
-  src: url("../fonts/sqmarket-light.ttf");
-  font-weight: 200;
-}
-@font-face {
-  font-family: "SQ market";
-  src: url("../fonts/sqmarket-medium.ttf");
-  font-weight: 600;
-}
-@font-face {
-  font-family: "SQ market";
-  src: url("../fonts/sqmarket-bold.ttf");
-  font-weight: bold;
-}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
 
 body {
   margin: 0;
-  font-family: "SQ market", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

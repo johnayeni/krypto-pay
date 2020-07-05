@@ -1,5 +1,7 @@
 import React from "react";
 import { Link as ReachLink } from "@reach/router";
+// @ts-ignore
+import Lottie from "lottie-react";
 import {
   Box,
   Grid,
@@ -9,9 +11,9 @@ import {
   Stack,
   Avatar,
 } from "@chakra-ui/core";
-import { ReactComponent as BitcoinIllustration } from "app/assets/img/bitcoin-illustration.svg";
 import Bitcoin from "app/assets/img/icons/bitcoin-logo.svg";
 import Ethereum from "app/assets/img/icons/ethereum-logo.svg";
+import PhoneAnimation from "app/assets/animations/phone-success.json";
 
 interface Props {}
 
@@ -26,8 +28,8 @@ const Hero: React.FC<Props> = (props) => {
         <Stack spacing={10}>
           <Heading>Pay with crypto</Heading>
           <Text fontWeight="600" color="grey" fontSize="2xl">
-            Pay Utility Bills or purchase Mobile Refills in Africa quickly,
-            safely, and privately with Bitcoin and other cryptocurrencies.
+            Pay utility bills or purchase mobile top-ups quickly, safely, and
+            privately using cryptocurrencies like Bitcoin.
           </Text>
           <Stack>
             <ReachLink to="/buy">
@@ -52,8 +54,19 @@ const Hero: React.FC<Props> = (props) => {
             </Stack>
           </Stack>
         </Stack>
-        <Box display={["none", "none", "block"]}>
-          <BitcoinIllustration />
+        <Box
+          display={["none", "none", "flex"]}
+          height={600}
+          flexDirection="column"
+          justifyContent="center"
+        >
+          <Lottie
+            animationData={PhoneAnimation}
+            loop={false}
+            style={{
+              height: 1000,
+            }}
+          />
         </Box>
       </Grid>
     </Box>
