@@ -18,7 +18,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
 
   const handleServiceCustomerIdChange = (event: any) => setServiceCustomerId(event.target.value);
 
-  const [amount, setAmount] = React.useState(product.amount ? product.amount : 500);
+  const [amount, setAmount] = React.useState(product?.amount ? product.amount : 500);
   const handleAmountChange = (event: any) => setAmount(event.target.value);
 
   const [email, setEmail] = React.useState("");
@@ -89,7 +89,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
   };
 
   React.useEffect(() => {
-    setAmount(product.amount ? product.amount : 100);
+    setAmount(product?.amount ? product.amount : 100);
   }, [product]);
 
   React.useEffect(() => {

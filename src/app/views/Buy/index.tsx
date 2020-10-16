@@ -12,7 +12,6 @@ const Buy: React.FC = () => {
   const {
     query,
     refillType,
-    country,
     types,
     isModalOpen,
     loading,
@@ -20,7 +19,6 @@ const Buy: React.FC = () => {
     error,
 
     handleRefillTypeChange,
-    handleCountryChange,
     handleSelectProduct,
     selectedProduct,
     handleQueryChange,
@@ -35,8 +33,6 @@ const Buy: React.FC = () => {
           query,
           handleQueryChange,
           refillType,
-          country,
-          handleCountryChange,
           types,
           handleRefillTypeChange,
         }}

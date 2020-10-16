@@ -17,24 +17,21 @@ export default function useProducts() {
 
   const handleQueryChange = (event: any) => setQuery(event.target.value);
 
-  const [country, setCountry] = React.useState<string>("NG");
-
-  const handleCountryChange = (event: any) => setCountry(event.target.value);
-
   const [refillType, setRefillType] = React.useState<string>("all");
 
   const handleRefillTypeChange = (event: any) => setRefillType(event.target.value);
 
   const { data: categories, loading, error } = useFetch(getCategories);
 
-  const products = React.useMemo(
-    () => categories.filter((category) => category.country === country),
-    [categories, country]
-  );
+  const types = React.useMemo(() => {
+    const _types = new Set();
+    categories.forEach((category) => _types.add(category.biller_name));
+    return Array.from(_types);
+  }, [categories]);
 
   const filteredProducts = React.useMemo(
     () =>
-      products
+      categories
         .filter((category) => {
           if (refillType === "all") {
             return true;
@@ -42,19 +39,12 @@ export default function useProducts() {
           return category.biller_name === refillType;
         })
         .filter((category) => category.name.toLowerCase().includes(query.toLowerCase())),
-    [products, query, refillType]
+    [categories, query, refillType]
   );
-
-  const types = React.useMemo(() => {
-    const _types = new Set();
-    products.forEach((product) => _types.add(product.biller_name));
-    return Array.from(_types);
-  }, [products]);
 
   return {
     query,
     refillType,
-    country,
     types,
     isModalOpen,
     loading,
@@ -62,7 +52,6 @@ export default function useProducts() {
     error,
 
     handleRefillTypeChange,
-    handleCountryChange,
     handleSelectProduct,
     selectedProduct,
     handleQueryChange,
