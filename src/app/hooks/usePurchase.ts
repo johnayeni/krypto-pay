@@ -34,34 +34,52 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
   const toast = useToast();
 
   const onCreateTransaction = async () => {
-    setLoading(true);
-    try {
-      const response = await createTransaction({
-        billerCode: product.biller_code,
-        itemCode: product.item_code,
-        serviceName: product.biller_name,
-        country: product.country,
-        amount: String(amount),
-        serviceCustomerId,
-        email,
-      });
-
-      if (!response.ok) {
-        throw response;
-      }
-      const data = await response.json();
-      setPaymentResponse(data);
-      setShowReceipt(true);
-    } catch (error) {
+    if (amount < 100) {
       toast({
-        title: "Error occurred",
-        description: error.response?.data?.message,
+        title: "Invalid amount",
+        description: "Amount is less than NGN 100",
         status: "error",
         duration: 5000,
         isClosable: true,
       });
-    } finally {
-      setLoading(false);
+    } else if (amount > 35000) {
+      toast({
+        title: "Invalid amount",
+        description: "Amount is greater than NGN 35000",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    } else {
+      setLoading(true);
+      try {
+        const response = await createTransaction({
+          billerCode: product.biller_code,
+          itemCode: product.item_code,
+          serviceName: product.biller_name,
+          country: product.country,
+          amount: String(amount),
+          serviceCustomerId,
+          email,
+        });
+
+        if (!response.ok) {
+          throw response;
+        }
+        const data = await response.json();
+        setPaymentResponse(data);
+        setShowReceipt(true);
+      } catch (error) {
+        toast({
+          title: "Error occurred",
+          description: error.response?.data?.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -71,7 +89,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
   };
 
   React.useEffect(() => {
-    setAmount(product.amount ? product.amount : 500);
+    setAmount(product.amount ? product.amount : 100);
   }, [product]);
 
   React.useEffect(() => {

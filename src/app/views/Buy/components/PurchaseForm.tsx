@@ -40,13 +40,7 @@ const PurchaseForm: React.FC<Props> = ({
             {formatMoneyNoCurrency(product.amount)}
           </Text>
         ) : (
-          <NumberInput
-            defaultValue={500}
-            min={500}
-            max={100000}
-            size="lg"
-            marginY={5}
-          >
+          <NumberInput defaultValue={100} min={100} max={35000} size="lg" marginY={5}>
             <NumberInputField
               type="number"
               id="amount"
@@ -62,10 +56,10 @@ const PurchaseForm: React.FC<Props> = ({
             </NumberInputStepper>
           </NumberInput>
         )}
-        {amount < 500 && !product.amount && (
+        {amount < 100 && !product.amount && (
           <Alert status="error" marginY={5}>
             <AlertIcon />
-            <AlertTitle mr={2}>Cannot purchase less than N 500</AlertTitle>
+            <AlertTitle mr={2}>Cannot purchase less than N 100</AlertTitle>
           </Alert>
         )}
         <Text fontSize="md" color="grey" fontWeight="600">
