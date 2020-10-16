@@ -2,6 +2,7 @@ import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import { Box } from "@chakra-ui/core";
 import NavBar from "app/components/NavBar";
+import Footer from "app/components/Footer";
 import Hero from "app/views/Home/components/Hero";
 import Features from "app/views/Home/components/Features";
 
@@ -13,6 +14,7 @@ const Home: React.FC<Props> = (props) => {
       <NavBar />
       <Hero />
       <Features />
+      <Footer />
     </Box>
   );
 };

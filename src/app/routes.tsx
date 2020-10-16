@@ -7,7 +7,10 @@ const Routes: React.FC = () => {
   return (
     <Router>
       <Home path="/" />
-      <Buy path="/buy" />
+      <Buy
+        // @ts-ignore
+        path="/buy"
+      />
       <Redirect from="*" to="/" />
     </Router>
   );

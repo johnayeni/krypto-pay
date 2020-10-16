@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as ReachLink } from "@reach/router";
+import { Link as ReachLink, useLocation } from "@reach/router";
 import { Stack, Image, Text, Box, Button } from "@chakra-ui/core";
 import Logo from "app/assets/img/logo.svg";
 
@@ -8,6 +8,8 @@ interface Props {
 }
 
 const NavBar: React.FC<Props> = (props) => {
+  const location = useLocation();
+
   return (
     <>
       <Box
@@ -20,16 +22,18 @@ const NavBar: React.FC<Props> = (props) => {
             <Stack spacing={3} direction="row" alignItems="center">
               <Image src={Logo} alt="logo" size="50px" />
               <Text fontSize="2xl" fontWeight="bold">
-                Krypto Pay
+                Peeerpay
               </Text>
             </Stack>
           </ReachLink>
 
-          <ReachLink to="/buy" style={{ zIndex: 10 }}>
-            <Button variantColor="green" rightIcon="arrow-forward">
-              Pay
-            </Button>
-          </ReachLink>
+          {location.pathname !== "/buy" && (
+            <ReachLink to="/buy" style={{ zIndex: 10 }}>
+              <Button variantColor="green" rightIcon="arrow-forward">
+                Pay
+              </Button>
+            </ReachLink>
+          )}
         </Stack>
       </Box>
     </>

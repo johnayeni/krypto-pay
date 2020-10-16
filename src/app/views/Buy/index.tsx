@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Stack, Text, Alert, AlertIcon, AlertTitle } from "@chakra-ui/core";
 import NavBar from "app/components/NavBar";
+import Footer from "app/components/Footer";
 import ProductItem from "app/views/Buy/components/ProductItem";
 import ProductFilters from "app/views/Buy/components/ProductFilters";
 import PurchaseModal from "app/views/Buy/components/PurchaseModal";
@@ -74,6 +75,7 @@ const Buy: React.FC = () => {
           product={selectedProduct}
         />
       )}
+      <Footer />
     </Box>
   );
 };
