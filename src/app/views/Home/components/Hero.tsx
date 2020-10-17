@@ -14,13 +14,12 @@ const Hero: React.FC = () => {
         <Stack spacing={10}>
           <Heading>Pay with crypto</Heading>
           <Text fontWeight="600" color="grey" fontSize="2xl">
-            Purchase mobile top-ups and mobile data safely, and privately using cryptocurrencies
-            like Bitcoin.
+            Purchase mobile top-ups safely and privately using cryptocurrencies like Bitcoin.
           </Text>
           <Stack>
             <ReachLink to="/buy">
               <Button size="lg" variantColor="green" isFullWidth>
-                Get Started
+                Buy Airtime
               </Button>
             </ReachLink>
             <Text marginTop={10}>Supported payment methods</Text>

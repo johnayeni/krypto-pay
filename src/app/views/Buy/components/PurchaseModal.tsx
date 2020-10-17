@@ -14,6 +14,7 @@ import {
 import PurchaseForm from "./PurchaseForm";
 import PurchaseReceipt from "./PurchaseReceipt";
 import usePurchase from "app/hooks/usePurchase";
+import { emailIsValid } from "app/utils/helpers";
 
 interface Props {
   isOpen: boolean;
@@ -79,7 +80,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
           </Button>
           <Button
             variantColor="green"
-            isDisabled={!amount || !serviceCustomerId || !email}
+            isDisabled={!amount || !serviceCustomerId || !email || !emailIsValid(email)}
             isLoading={loading}
             onClick={showReceipt ? openPaymentPage : onCreateTransaction}
           >

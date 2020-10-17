@@ -30,7 +30,7 @@ const NavBar: React.FC<Props> = (props) => {
           {location.pathname !== "/buy" && (
             <ReachLink to="/buy" style={{ zIndex: 10 }}>
               <Button variantColor="green" rightIcon="arrow-forward">
-                Pay
+                Top up
               </Button>
             </ReachLink>
           )}

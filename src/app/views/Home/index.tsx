@@ -10,7 +10,7 @@ interface Props extends RouteComponentProps {}
 
 const Home: React.FC<Props> = (props) => {
   return (
-    <Box paddingTop={5}>
+    <Box paddingTop={5} display="flex" flexDirection="column" minHeight="100vh">
       <NavBar />
       <Hero />
       <Features />

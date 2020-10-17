@@ -2,7 +2,6 @@ import React from "react";
 import { Image, Heading, Text, Stack } from "@chakra-ui/core";
 
 import BitcoinInfoGraphic from "app/assets/img/icons/bitcoin-infographic.svg";
-import BillInfoGraphic from "app/assets/img/icons/bill-infographic.svg";
 import PhoneInfoGraphic from "app/assets/img/icons/phone-infographic.svg";
 
 interface Props {}
@@ -14,7 +13,7 @@ const Features: React.FC<Props> = (props) => {
       paddingTop={50}
       paddingBottom={100}
       direction="row"
-      justify="space-between"
+      justify="space-around"
       flexWrap="wrap"
     >
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
@@ -24,15 +23,6 @@ const Features: React.FC<Props> = (props) => {
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
           Top up any phone anywhere from anywhere with your crypto wallet.
-        </Text>
-      </Stack>
-      <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
-        <Image src={BillInfoGraphic} alt="Bills" size="80px" />
-        <Heading as="h2" size="lg">
-          Pay for Mobile Data
-        </Heading>
-        <Text fontSize="xl" fontWeight="600" color="grey">
-          Pay for mobile data subscriptions across supported networks.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>

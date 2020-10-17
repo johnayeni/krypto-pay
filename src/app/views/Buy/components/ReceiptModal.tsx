@@ -26,7 +26,7 @@ import {
 } from "@chakra-ui/core";
 import { FaShoppingCart } from "react-icons/fa";
 import { createTransaction } from "app/api";
-import { formatMoneyNoCurrency } from "../../../utils/helpers";
+import { formatMoneyNoCurrency, emailIsValid } from "app/utils/helpers";
 
 interface Props {
   isOpen: boolean;
@@ -34,17 +34,14 @@ interface Props {
   product: any;
 }
 
-const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
+const ReceiptModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
   const [loading, setLoading] = React.useState(false);
 
   const [serviceCustomerId, setServiceCustomerId] = React.useState("");
 
-  const handleServiceCustomerIdChange = (event: any) =>
-    setServiceCustomerId(event.target.value);
+  const handleServiceCustomerIdChange = (event: any) => setServiceCustomerId(event.target.value);
 
-  const [amount, setAmount] = React.useState(
-    product.amount ? product.amount : 500
-  );
+  const [amount, setAmount] = React.useState(product.amount ? product.amount : 500);
   const handleAmountChange = (event: any) => setAmount(event.target.value);
 
   const [email, setEmail] = React.useState("");
@@ -98,11 +95,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
         <ModalHeader>{product.name}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Grid
-            templateColumns={["1fr", "150px 1fr"]}
-            templateRows={["1fr", "2fr"]}
-            gap={10}
-          >
+          <Grid templateColumns={["1fr", "150px 1fr"]} templateRows={["1fr", "2fr"]} gap={10}>
             <Image
               src={product.image}
               alt={product.name}
@@ -120,13 +113,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
                     {formatMoneyNoCurrency(product.amount)}
                   </Text>
                 ) : (
-                  <NumberInput
-                    defaultValue={500}
-                    min={500}
-                    max={100000}
-                    size="lg"
-                    marginY={5}
-                  >
+                  <NumberInput defaultValue={500} min={500} max={100000} size="lg" marginY={5}>
                     <NumberInputField
                       type="number"
                       id="amount"
@@ -145,9 +132,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
                 {amount < 500 && !product.amount && (
                   <Alert status="error" marginY={5}>
                     <AlertIcon />
-                    <AlertTitle mr={2}>
-                      Cannot purchase less than N 500
-                    </AlertTitle>
+                    <AlertTitle mr={2}>Cannot purchase less than N 500</AlertTitle>
                   </Alert>
                 )}
                 <Text fontSize="md" color="grey" fontWeight="600">
@@ -193,7 +178,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
           <Button
             variantColor="green"
             rightIcon={FaShoppingCart}
-            isDisabled={!amount || !serviceCustomerId || !email}
+            isDisabled={!amount || !serviceCustomerId || !email || !emailIsValid(email)}
             isLoading={loading}
             onClick={onCreateTransaction}
           >
@@ -205,4 +190,4 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
   );
 };
 
-export default PurchaseModal;
+export default ReceiptModal;

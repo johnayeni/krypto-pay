@@ -40,7 +40,7 @@ const PurchaseForm: React.FC<Props> = ({
             {formatMoneyNoCurrency(product.amount)}
           </Text>
         ) : (
-          <NumberInput defaultValue={50} min={50} max={35000} size="lg" marginY={5}>
+          <NumberInput defaultValue={50} max={35000} size="lg" marginY={5}>
             <NumberInputField
               type="number"
               id="amount"
@@ -87,6 +87,7 @@ const PurchaseForm: React.FC<Props> = ({
           onChange={handleEmailChange}
           placeholder="Your email"
           aria-label="email"
+          type="email"
           size="lg"
           id="email"
           variant="filled"
