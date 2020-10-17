@@ -34,7 +34,7 @@ const PurchaseModal: React.FC<Props> = ({ isOpen, onClose, product }) => {
     loading,
     openPaymentPage,
     onCreateTransaction,
-  } = usePurchase(product);
+  } = usePurchase({ isOpen, product });
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">

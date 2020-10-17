@@ -18,7 +18,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
 
   const handleServiceCustomerIdChange = (event: any) => setServiceCustomerId(event.target.value);
 
-  const [amount, setAmount] = React.useState(product?.amount ? product.amount : 500);
+  const [amount, setAmount] = React.useState(product?.amount ? product.amount : 100);
   const handleAmountChange = (event: any) => setAmount(event.target.value);
 
   const [email, setEmail] = React.useState("");
@@ -34,7 +34,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
   const toast = useToast();
 
   const onCreateTransaction = async () => {
-    if (amount < 100) {
+    if (Number(amount) < 100) {
       toast({
         title: "Invalid amount",
         description: "Amount is less than NGN 100",
@@ -42,7 +42,7 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
         duration: 5000,
         isClosable: true,
       });
-    } else if (amount > 35000) {
+    } else if (Number(amount) > 35000) {
       toast({
         title: "Invalid amount",
         description: "Amount is greater than NGN 35000",
@@ -70,9 +70,10 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
         setPaymentResponse(data);
         setShowReceipt(true);
       } catch (error) {
+        console.log(error);
         toast({
           title: "Error occurred",
-          description: error.response?.data?.message,
+          description: error.response?.data?.message || error?.message,
           status: "error",
           duration: 5000,
           isClosable: true,
