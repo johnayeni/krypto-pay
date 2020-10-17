@@ -23,8 +23,7 @@ const Features: React.FC<Props> = (props) => {
           Pay for TV and Electricity
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
-          Pay for cable subscriptions and electricity bills across supported
-          countries and services.
+          Pay for cable subscriptions and electricity bills across supported services.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
@@ -33,7 +32,7 @@ const Features: React.FC<Props> = (props) => {
           Refill your phone
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
-          Top up any phone anywhere for supported countries and operators.
+          Top up any phone anywhere from anywhere with your crypto wallet.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
@@ -42,8 +41,7 @@ const Features: React.FC<Props> = (props) => {
           Pay with Bitcoin
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
-          Take advantage of the limitless features of bitcoin and crypto
-          currency payments.
+          Take advantage of the limitless features of bitcoin and crypto currency payments.
         </Text>
       </Stack>
     </Stack>
