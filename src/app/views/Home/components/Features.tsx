@@ -18,21 +18,21 @@ const Features: React.FC<Props> = (props) => {
       flexWrap="wrap"
     >
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
-        <Image src={BillInfoGraphic} alt="Bills" size="80px" />
-        <Heading as="h2" size="lg">
-          Pay for TV and Electricity
-        </Heading>
-        <Text fontSize="xl" fontWeight="600" color="grey">
-          Pay for cable subscriptions and electricity bills across supported services.
-        </Text>
-      </Stack>
-      <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
         <Image src={PhoneInfoGraphic} alt="Phone" size="80px" />
         <Heading as="h2" size="lg">
           Refill your phone
         </Heading>
         <Text fontSize="xl" fontWeight="600" color="grey">
           Top up any phone anywhere from anywhere with your crypto wallet.
+        </Text>
+      </Stack>
+      <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>
+        <Image src={BillInfoGraphic} alt="Bills" size="80px" />
+        <Heading as="h2" size="lg">
+          Pay for Mobile Data
+        </Heading>
+        <Text fontSize="xl" fontWeight="600" color="grey">
+          Pay for mobile data subscriptions across supported networks.
         </Text>
       </Stack>
       <Stack spacing={5} maxWidth={300} alignItems="baseline" marginY={10}>

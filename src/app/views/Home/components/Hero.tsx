@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
         <Stack spacing={10}>
           <Heading>Pay with crypto</Heading>
           <Text fontWeight="600" color="grey" fontSize="2xl">
-            Pay utility bills or purchase mobile top-ups quickly, safely, and privately using
-            cryptocurrencies like Bitcoin.
+            Purchase mobile top-ups and mobile data safely, and privately using cryptocurrencies
+            like Bitcoin.
           </Text>
           <Stack>
             <ReachLink to="/buy">
