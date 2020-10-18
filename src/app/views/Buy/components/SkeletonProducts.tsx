@@ -4,7 +4,7 @@ import { Skeleton, Stack } from "@chakra-ui/core";
 interface Props {}
 
 const SkeletonProducts: React.FC<Props> = (props) => {
-  const placeholderItems = Array.from(new Array(12), (_, x) => x);
+  const placeholderItems = Array.from(new Array(6), (_, x) => x);
   return (
     <Stack
       direction="row"

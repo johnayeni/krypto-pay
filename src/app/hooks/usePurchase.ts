@@ -70,7 +70,6 @@ export default function usePurchase({ isOpen, product }: { isOpen: boolean; prod
         setPaymentResponse(data);
         setShowReceipt(true);
       } catch (error) {
-        console.log(error);
         toast({
           title: "Error occurred",
           description: error.response?.data?.message || error?.message,
